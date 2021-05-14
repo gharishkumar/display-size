@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Diff screen size</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <script src='script.js'></script>
+</head>
+<body>
+    <div id="slidecontainer">
+       
+        <p><input type="range" min="7" max="50" value="15.5" step=".1"  class="slider" id="id1"></p>
+        
+        <span>Value:</span> <span id="f" style="font-weight:bold;color:red">15.5</span>
+        
+    </div>
+    <div>
+        <img src="card.jpg" id="img" />
+        <script>
+            var slideCol = document.getElementById("id1");
+            var img = document.getElementById("img");
+            var y = document.getElementById("f");
+            img.style.width = (5.3e3 / slideCol.value) + "px";
+            
+            slideCol.oninput = function() {
+                y.innerHTML = this.value;
+                img.style.width = (5.3e3 / this.value) + "px";
+            }
+            
+            </script>
+    </div>
+</body>
+</html>
