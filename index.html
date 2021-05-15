@@ -11,25 +11,26 @@
 <body>
     <div id="slidecontainer">
        
-        <p><input type="range" min="7" max="50" value="15.5" step=".1"  class="slider" id="id1"></p>
+        <p><input type="range" min="80" max="1e2" value="85.6" step=".1"  class="slider" id="id1"></p>
         
-        <span>Value:</span> <span id="f" style="font-weight:bold;color:red">15.5</span>
+        <span>Value:</span> <span id="f" style="font-weight:bold;color:red">85.6 mm</span>
+        <button onclick="console.log(img.style.width)">OK</button>
         
     </div>
     <div>
-        <img src="card.jpg" id="img" />
+        <img src="card.svg" id="img" />
         <script>
             var slideCol = document.getElementById("id1");
             var img = document.getElementById("img");
             var y = document.getElementById("f");
-            img.style.width = (5.3e3 / slideCol.value) + "px";
+            img.style.width = slideCol.value + "mm";
             
             slideCol.oninput = function() {
-                y.innerHTML = this.value;
-                img.style.width = (5.3e3 / this.value) + "px";
+                y.innerHTML = this.value + " mm";
+                img.style.width = this.value + "mm";
             }
             
-            </script>
+        </script>
     </div>
 </body>
 </html>
